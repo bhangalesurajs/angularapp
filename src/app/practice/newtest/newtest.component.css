@@ -1,0 +1,32 @@
+
+div{
+    text-align: left;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 0.5%;
+
+}
+input,select{
+    text-align: left;
+    border: 5px solid royalblue;
+    border-radius: 40px;
+    padding-left: 2%;
+
+}
+label{
+    text-align: left;
+    font-style: oblique;
+    font-weight: bolder;
+    color: brown;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+input.ng-invalid.ng-touched{
+    border: 3px solid red;
+    box-shadow: 0 0 10px blueviolet;
+}
+button{
+    border-radius: 40px;
+   
+}

@@ -1,0 +1,97 @@
+<html>
+<p>newreactiveform works!</p>
+<h2> ADMIDSSION FORM</h2>
+<form (ngSubmit)="OnSubmit()" [formGroup]="myAdmissionForm">
+  <div class="form-group row">
+    <label for="text" class="col-md-4">Enter Firstname</label>
+    <label for="text" class="col-md-4">Enter Lastname</label>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <input type="text" class="col-md-4" id="firstname" formControlName="firstname">
+    <input type="text" class="col-md-4" id="lastname" formControlName="lastname">
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <label for="text" class="col-md-4">Enter Email</label>
+    <label for="text" class="col-md-4">Enter Password</label>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <input type="email" class="col-md-4" id="email" formControlName="email">
+    <small class="text-danger" *ngIf="!myAdmissionForm.get('email').valid && myAdmissionForm.get('email').touched">Enter
+      Valid Email</small>
+    <input type="password" class="col-md-4" id="password" formControlName="password">
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <label for="text" class="col-md-4">Enter Mobile Number</label>
+    <label for="text" class="col-md-4">Nationality</label>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <input type="number" class="col-md-4" id="mobileNumber" name="mobileNumber">
+    <select class="col-md-4" for="nationality" [(ngModel)]="selectNationality">
+      <label for="nationality"></label>
+      <option value="Default">Select Nationality</option>
+      <option value="indian">INDIAN</option>
+      <option value="canada">CANADA</option>
+    </select>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <label for="state" class="col-md-4">Select State</label>
+    <label for="district" class="col-md-4">Select District</label>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <select class="col-md-4" for="state">
+      <option value="Default">Select State</option>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Goa">Goa</option>
+      <option value="Gujarat" for="guj">Gujarat</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Madhya Pradesh" for="mp">Madhya Pradesh</option>
+      <option value="Maharashtra" for="mh">Maharashtra</option>
+    </select>
+    <select class="col-md-4" for="mh">
+      <option value="Default">Maharastra</option>
+      <option value="Ahmednagar">Ahmednagar</option>
+      <option value="Akola">Akola</option>
+      <option value="Amravati">Amravati</option>
+      <option value="Aurangabad">Aurangabad</option>
+      <option value="Buldhana">Buldhana</option>
+      <option value="Chandrapur">Chandrapur</option>
+      <option value="Dhule">Dhule</option>
+      <option value="Gondia">Gondia</option>
+      <option value="Nagpur">Nagpur</option>
+      <option value="Thane">Thane</option>
+      <option value="Pune">Pune</option>
+    </select>
+    <select class="col-md-4" for="guj">
+      <option value="Default">Gujrat</option>
+      <option value="Ahmedabad">Ahmedabad</option>
+      <option value="Gandhinagar">Gandhinagar</option>
+      <option value="Rajkot">Rajkot</option>
+    </select>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <label class="col-md-4"> Select Gender</label>
+    <div class="custom-control custom-radio" *ngFor="let gender of genders">
+      <input type="radio" value="{{gender.value}}" formControlName="gender" class="custom-control-input"
+        id="{{gender.id}}">
+      <label class="custom-control-label" for="{{gender.id}}">{{gender.value}}</label>
+    </div>
+  </div>
+
+  <div class="form-group" style="text-align: left;">
+    <button type="submit" [disabled]="!myAdmissionForm">Submit</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
+<div>
+  <div class="form-group" *ngIf="submitted">
+    <h2>ADMIDSSION FORM</h2>
+    <p>Firstname : <strong>{{myAdmissionForm.get('firstname').value}}</strong></p>
+    <p>Lastname: <strong>{{myAdmissionForm.get('lastname').value}}</strong></p>
+    <p>Email: <strong>{{myAdmissionForm.get('email').value}}</strong></p>
+    <p>Password: <strong>{{myAdmissionForm.get('password').value}}</strong></p>
+    <p>Mobile Number: <strong>{{myAdmissionForm.get('mobileNumber').value}}</strong></p>
+
+  </div>
+</div>
+
+</html>

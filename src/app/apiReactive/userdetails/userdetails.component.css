@@ -1,0 +1,9 @@
+table{
+   margin-left: 10%;
+    width: 75%;
+    border: 2px solid rgb(102, 48, 228);
+    background-color: aquamarine;
+}
+th{
+    color: coral;
+}

@@ -1,0 +1,16 @@
+label,span{
+    font-weight: bolder;
+    color: darkmagenta;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+button{
+    font-weight: bolder;
+    margin-top: 1%;
+    background-color: aquamarine;
+    border-radius: 20px;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+    box-shadow: 0 0 20px brown;
+}

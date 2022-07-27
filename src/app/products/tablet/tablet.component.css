@@ -1,0 +1,9 @@
+button{
+    background-color: lightblue;
+border: 2px solid firebrick;
+border-radius: 15px;
+height: 50px;
+width: 100px;
+font-style: oblique;
+font-weight: bolder;
+}

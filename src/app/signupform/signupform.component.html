@@ -1,0 +1,21 @@
+<h1>signupform works!</h1>
+<div >
+  <form (ngSubmit)="OnSignUp()" [formGroup]="signUpForm">
+    <div class="form-group" class="col-md-6">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username" >
+      <small *ngIf="!signUpForm.get('username').valid && signUpForm.get('username').touched" >
+        <span *ngIf="signUpForm.get('username').errors['required']">Enter valid username </span>
+      </small>
+      <br>
+      <label for="password">Password</label>
+      <input type="text" class="form-control" id="password" value="password" formControlName="password" placeholder="Enter password" (change)="onPasswordChange()" >
+      <span class="text-danger" *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').touched">Please Enter Password</span><br>
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="text" class="form-control" id="confirmPassword" value="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" (change)="onPasswordChange()">
+      <span *ngIf="!signUpForm.get('confirmPassword').valid && signUpForm.get('confirmPassword').touched">Reenter Valid Password </span><br>
+      <button type="submit" [disabled]="!signUpForm.valid">Sign Up</button>
+    </div>
+  </form>
+ 
+</div>

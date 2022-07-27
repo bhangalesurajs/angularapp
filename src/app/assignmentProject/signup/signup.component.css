@@ -1,0 +1,32 @@
+*{
+    margin-top: 10px;
+}
+
+input{
+    border-radius: 5px;
+}
+button{  
+    color: whitesmoke;
+    font-weight: 700;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, rgb(233, 17, 46) , rgb(235, 107, 218));
+}
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+    box-shadow: 0 0 10px red;
+}
+small{
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+h2,p{
+    color: rgb(243, 8, 145);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+th,tr,td{
+    justify-content: left;
+    border: 2px solid rgb(2, 103, 143);
+    font-style: italic;
+    color: maroon;
+}

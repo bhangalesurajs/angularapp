@@ -1,0 +1,61 @@
+<div class="row  justify-content-center">
+  <div class="col-md-6 rounded shadow py-4" style="background-color: aliceblue; margin-top: 5%; margin-bottom: 5%;">
+    <h2>SIGNUP FORM</h2>
+    <form (ngSubmit)="OnSubmit()" [formGroup]="signUp">
+      <div class="form-group">
+        <button type="button" class="btn bt-lg col-md-3" routerLink="../login/">Login</button>
+        <button type="button" class="btn bt-lg col-md-3">SignUp</button>
+      </div>
+      <div class="form-group">
+        <input type="text" class="col-md-6" placeholder="First Name" formControlName="firstName">
+      </div>
+      <div class="form-group">
+        <input type="text" class="col-md-6" placeholder="Last Name" formControlName="lastName">
+      </div>
+      <div class="form-group">
+        <input type="email" class="col-md-6" placeholder="Email Address" formControlName="email"> <br>
+        <small *ngIf="!signUp.get('email').valid && signUp.get('email').touched">
+          Please Enter Valid Email
+        </small>
+      </div>
+      <div class="form-group">
+        <input type="password" class="col-md-6" id="password" value="password" placeholder="Enter Password"
+          formControlName="password" (change)="onPasswordChange()"> <br>
+        <small *ngIf="!signUp.get('password').valid && signUp.get('password').touched">Please enter password
+          <span *ngIf="!signUp.get('password').errors['required']">Please enter min 8 character </span>
+        </small>
+      </div>
+      <div class="form-group">
+        <input type="password" class="col-md-6" id="confirmPassword" value="confirmPassword"
+          placeholder="Reenter Password" formControlName="confirmPassword" (change)="onPasswordChange()"> <br>
+        <small *ngIf="!signUp.get('confirmPassword').valid && signUp.get('confirmPassword').touched">Password not match
+        </small>
+      </div>
+      <div class="form-group">
+        <button type="submit" [disabled]="!signUp.valid" class="btn col-md-6">Submit</button>
+        <p>Already member? <a routerLink="../login/">Login</a></p>
+      </div>
+      <div *ngIf="submitted">
+        <table>
+            <thead>
+              <tr>
+                <th>Sr.No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{1}}</td>
+                <td>{{signUp.get('firstName').value}}</td>
+                <td>{{signUp.get('lastName').value}}</td>
+                <td>{{signUp.get('email').value}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    </form> 
+  </div>
+</div>
+

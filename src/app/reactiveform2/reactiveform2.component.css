@@ -1,0 +1,32 @@
+input,select{
+    text-align: left;
+    border: 2px solid cornflowerblue;
+    border-radius: 20px;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: rgb(140, 210, 155);
+
+}
+label{
+    text-align: left;
+    color: rgb(226, 43, 144);
+    font-weight: bolder;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;
+}
+button{
+    margin-left: 10%;
+    border: 1px solid blueviolet;
+    background-color: brown;
+    border-radius: 20%;  
+}
+html{
+    background-color: skyblue;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched{
+    border: 1px solid red;
+    box-shadow: 0 0 13px brown;
+}

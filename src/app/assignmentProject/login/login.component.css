@@ -1,0 +1,39 @@
+*{
+    margin-top: 10px;
+}
+
+input{
+    border-radius: 5px;
+}
+button{  
+    color: whitesmoke;
+    font-weight: 700;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, rgb(233, 17, 46) , rgb(235, 107, 218));
+}
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+    box-shadow: 0 0 10px red;
+}
+small{
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+h2,p{
+    color: rgb(85, 3, 74);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   
+}
+/* toast-top-center {
+    top: 12px;
+    margin: 0 auto;
+    left: 50%;
+    margin-left: 150px;
+} */
+
+.toast-bottom-right {
+    right: 12px;
+    bottom: 50px;
+}
+

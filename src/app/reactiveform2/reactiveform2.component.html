@@ -1,0 +1,83 @@
+<html>
+<p>reactiveform2 works!</p>
+<h2> ADMIDSSION FORM</h2>
+<form (ngSubmit)="OnSubmit()" [formGroup]="myAdmissionForm">
+  <div class="form-group row">
+    <label for="text" class="col-md-4">Enter Firstname</label>
+    <label for="text" class="col-md-4">Enter Lastname</label>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <input type="text" class="col-md-4" id="firstname" formControlName="firstname">
+    <input type="text" class="col-md-4" id="lastname" formControlName="lastname">
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <label for="text" class="col-md-4">Enter Email</label>
+    <label for="text" class="col-md-4">Enter Password</label>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <input type="email" class="col-md-4" id="email" formControlName="email">
+    <small class="text-danger" style="font-weight: bold;"
+      *ngIf="!myAdmissionForm.get('email').valid && myAdmissionForm.get('email').touched">Enter
+      Valid Email</small>
+    <input type="password" class="col-md-4" id="password" formControlName="password">
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <label for="text" class="col-md-4">Enter Mobile Number</label>
+    <label for="text" class="col-md-4">Nationality</label>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <input type="number" class="col-md-4" id="mobileNumber" name="mobileNumber" formControlName="mobileNumber">
+    <select class="col-md-4" [(ngModel)]="selectedCountry"
+      (change)="changeCountry($event.target.value)" id="nationality" formControlName="nationality"  for="country">
+      <option>Select Nationality</option>
+      <option *ngFor="let country of Countries">{{country.name}}</option>
+    </select>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <label for="state" class="col-md-4">State</label>
+    <label for="district" class="col-md-4">City</label>
+  </div>
+  <div class="form-group" style="text-align: left;">
+    <select class="col-md-4" (change)="changeState($event.target.value)" id="state" for="country" formControlName="state">
+      <option value="Default"> Select State</option>
+      <option *ngFor="let state of states">{{state.name}}</option>
+    </select>
+    <select class="col-md-4" id="city" formControlName="city" for="country">
+      <option value="Default">Select city</option>
+      <option *ngFor="let city of cities">{{city}}</option>
+    </select>
+  </div>
+  <div class="row">
+    <div class="form-group" style="text-align: left;">
+      <label class="col-md-4"> Select Gender</label>
+      <div class="custom-control custom-radio" *ngFor="let gender of genders">
+        <input type="radio" value="{{gender.value}}" formControlName="gender" class="custom-control-input"
+          id="{{gender.id}}">
+        <label class="custom-control-label" for="{{gender.id}}">{{gender.value}}</label>
+      </div>
+    </div>
+
+  </div> 
+  
+  <div class="form-group" style="text-align: left;">
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
+<div>
+  <div class="form-group" *ngIf="submitted">
+    <h2>ADMIDSSION FORM</h2>
+    <p>Firstname : <strong>{{myAdmissionForm.get('firstname').value}}</strong></p>
+    <p>Lastname: <strong>{{myAdmissionForm.get('lastname').value}}</strong></p>
+    <p>Email: <strong>{{myAdmissionForm.get('email').value}}</strong></p>
+    <!-- <p>Password: <strong>{{myAdmissionForm.get('password').value}}</strong></p> -->
+    <p>Mobile Number: <strong>{{myAdmissionForm.get('mobileNumber').value}}</strong></p>
+    <p>Nationality: <strong>{{myAdmissionForm.get('nationality').value}}</strong></p>
+    <p>State: <strong>{{myAdmissionForm.get('state').value}}</strong></p>
+    <p>City: <strong>{{myAdmissionForm.get('city').value}}</strong></p>
+    <!-- <p>Gender: <strong>{{myAdmissionForm.get('gender').radio}}</strong></p> -->
+
+  </div>
+</div>
+
+</html>

@@ -1,0 +1,101 @@
+<div style="background-color: rgb(218, 143, 143); padding-left: 10%; text-align: left;">
+  <h2 style="text-align: center;">PUNE UNIVERSITY</h2>
+  <br>
+  <br>
+  <h3 style="text-align: center;">Student Registration Form</h3>
+
+  <form (ngSubmit)="OnSubmit(myForm)" #myForm="ngForm">
+    <div class="form-group row">
+      <label for="text" class="col-sm-3 col-form-label">Name</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="name" name="name" ngModel required>
+      </div>
+    </div>
+    <div class="form-group row" id="bh">
+      <label for="text" class="col-sm-3 col-form-label">Date</label>
+      <div class="col-sm-6">
+        <input type="date" class="form-control" id="date" name="date" min="{{minDate|date:'yyyy-MM-dd'}}"
+        >
+        <!-- <input type="date"  [min]="minDate | date:'yyyy-MM-dd'" formControlName="date" > -->
+
+      </div>
+    </div>
+    <div class="form-group" id="bh">
+      <div class="row">
+        <div class="col-form-label col-sm-3">Sex</div>
+        <div class="col-sm-2 mt-1">
+          <input class="form-check-input" type="radio" id="radios1" value="radios1" name="radios1" ngModel checked>
+          <label class="form-check-label">
+            Male
+          </label>
+        </div>
+        <div class="col-sm-2 mt-1">
+          <input class="form-check-input" type="radio" id="radios2" value="radios2" name="radios1" ngModel>
+          <label class="form-check-label">
+            Female
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row" id="bh">
+      <label for="Email" class="col-sm-3 col-form-label">Email</label>
+      <div class="col-sm-6">
+        <input type="email" class="form-control" id="email" name="email" #email="ngModel" ngModel required>
+        <small class="text-danger" *ngIf="!email.valid && email.touched">Enter Valid Email</small>
+      </div>
+    </div>
+    <div class="form-group row" id="bh">
+      <label for="Adress" class="col-sm-3 col-form-label">Adress</label>
+      <div class="col-sm-6">
+        <textarea name="textarea" cols="35" rows="2" id="address" name="address" ngModel required></textarea>
+      </div>
+    </div>
+    <div class="form-group row" id="bh">
+      <label for="School" class="col-sm-3">School</label>
+      <div class="col-sm-2" style="background-color: white;">
+        <select class="dropdown-item" id="school" name="school" ngModel>
+          <option value="Default"></option>
+          <option value="D.E.S.Highschool,Datala">D.E.S.Highschool,Datala</option>
+          <option value="Mojhe Clg Pune">Mojhe Clg Pune</option>
+          <option value="JSPM Wagholi">JSPM Wagholi</option>
+        </select>
+      </div>
+      <div>
+        <select *ngFor="let school of schoolName; let i = index" >
+          <option class="dropdown-item" id="{{i}}">{{school.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row" id="bh">
+      <label for="Department" class="col-sm-3">Department</label>
+      <div class="col-sm-2" style="background-color: white;">
+        <select class="dropdown-item" id="department" name="department" ngModel>
+          <option value="Default"></option>
+          <option value="Mechanical">Mechanical</option>
+          <option value="Information Technology">Information Technology</option>
+          <option value="Computer">Computer</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <div class="form-group row" id="bh">
+        <label for="" class="col-sm-3 col-form-label">Mobile Number</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" id="mobile" name="mobile" ngModel required>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group row" id="bh">
+      <div class="col-sm-6">
+        <button type="reset" class="btn btn-primary" (click)="OnReset()">Reset</button>
+      </div>
+      <div class="col-sm-6">
+        <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary">Submit</button>
+      </div> 
+    </div>
+
+
+  </form>
+
+</div>

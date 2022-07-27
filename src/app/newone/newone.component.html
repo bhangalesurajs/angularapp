@@ -1,0 +1,19 @@
+<p>newone works!</p>
+
+<div class="container">
+    <div class="col-md-8">
+        <select class="form-control" (change)="getTheDetail($event)">
+            <option value="Default">Select one</option>
+            <option value="pc"> pc </option>
+            <option value="cell">cell</option>
+            <option value="happy">happy</option>
+        </select>
+    </div>
+    <div class="col-md12" [ngSwitch]="selectTheProduct">
+        <h2 *ngSwitchDefault>please select</h2>
+        <h2 *ngSwitchCase="'pc'">pc</h2>
+        <h2 *ngSwitchCase="'cell'">cell</h2>
+        <h2 *ngSwitchCase="'happy'">happy</h2>
+    </div>
+
+</div>

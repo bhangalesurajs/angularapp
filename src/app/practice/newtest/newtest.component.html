@@ -1,0 +1,65 @@
+<html>
+<h2> ADMIDSSION FORM</h2>
+<div>
+  <form [formGroup]="myTestForm">
+    <div class="row">
+      <div class="form-group">
+        <label class="col-md-6">Username</label>
+        <label class="col-md-6">Password</label>
+      </div>
+      <div class="form-group">
+        <input type="text" class="col-md-6" formControlName="username">
+        <small>
+          <span class="text-danger" style="font-weight: bold;" *ngIf="!myTestForm.get('username').valid && myTestForm.get('username').touched">Please enter valid
+            username</span>
+        </small>
+        <input type="password" class="col-md-6" formControlName="password">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <label class="col-md-6">Mobile Number</label>
+        <label class="col-md-6">Email</label>
+      </div>
+      <div class="form-group">
+        <input type="number" class="col-md-6" formControlName="mobileNumber">
+        <input type="email" class="col-md-6" formControlName="email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <label class="col-md-6">Select Country</label>
+        <label class="col-md-6">Select State</label>
+      </div>
+      <div class="form-group">
+        <select class="col-md-6" [(ngModel)]="selectedCountry" (change)="changeCountry($event.target.value)"
+          formControlName="selectCountry">
+          <option>Select Country </option>
+          <option *ngFor="let country of Countries">{{country.name}}</option>
+        </select>
+        <select class="col-md-6" (change)="changeState($event.target.value)" formControlName="selectState">
+          <option>Select State</option>
+          <option *ngFor="let state of states">{{state.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <label class="col-md-6">Select City</label>
+        <label class="col-md-6">Pincode</label>
+      </div>
+      <div class="form-group">
+        <select class="col-md-6" formControlName="selectCity">
+          <option>Select City</option>
+          <option *ngFor="let city of cities">{{city}}</option>
+        </select>
+        <input type="number" class="col-md-6" formControlName="pincode">
+      </div>
+    </div>
+    <div class="row" style="justify-content: center;"  >
+      <button class="btn-primary col-md-2" style="margin-right: 5%;"  type="submit"  [disabled]="!myTestForm.valid" (click)="OnClick()"> Submit</button>
+      <button class="btn-primary col-md-2" style="margin-left: 5%;" type="reset"> Reset</button>
+    </div>
+  </form>
+</div>
+</html>
